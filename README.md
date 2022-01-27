@@ -27,3 +27,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 ### `yarn build:dev`
 
 Builds the app for development to the `build` folder in case you want to test build.\
+
+## API URL
+http://localhost:3000
