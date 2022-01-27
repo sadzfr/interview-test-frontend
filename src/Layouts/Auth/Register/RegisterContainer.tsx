@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { register } from '../../../services/auth';
 import Register from './Register';
 
 const RegisterContainer = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState({
     email: '',
     password: ''
   });
   const handleRegister = async (e: any) => {
     e.preventDefault();
-    const userData = await register(values)
-    console.log({userData});
+    try {
+      const userData = await register(values)
+      console.log({ userData });
+      navigate('/')
+    } catch (error: any) {
+      alert(error.message)
+    }
   }
 
   const handleInputChange = (e: any) => {

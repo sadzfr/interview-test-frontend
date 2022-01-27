@@ -8,6 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.production react-scripts start",
-    "start:dev": "env-cmd -f .env.development react-scripts start",
+    "start:dev": "PORT=3001 env-cmd -f .env.development react-scripts start",
     "build": "env-cmd -f .env.production react-scripts build",
     "build:dev": "env-cmd -f .env.development react-scripts build",
     "test": "react-scripts test",

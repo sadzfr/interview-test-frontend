@@ -1,10 +1,18 @@
-import React from 'react';
-import { IProps } from './dashboard.interface';
+import React, { useState } from 'react';
+import MediaListContainer from './components/MediaList/MediaListContainer';
+import SearchContainer from './components/Search/SearchContainer';
+import SwitchContainer from './components/Switch/SwitchContainer';
 import TopBarContainer from './TopBar/TopBarContainer';
 
-const Dashboard: React.FC<IProps> = ({
-  gamers,
-}) => {
+const publishingOptions = [
+  { title: 'All Media', description: 'Both images and videos will be displayed', current: true },
+  { title: 'Image', description: 'Only show images', current: false },
+  { title: 'Video', description: 'Only show videos', current: false },
+]
+
+const Dashboard = () => {
+  const [selected, setSelected] = useState(publishingOptions[0])
+  const [search, setSearch] = useState('')
   return (
     <div className="min-h-full">
       <div className="bg-gray-800 pb-32">
@@ -17,14 +25,24 @@ const Dashboard: React.FC<IProps> = ({
       </div>
 
       <main className="-mt-32">
-          <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
-            {/* Main content */}
-            <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
-              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
+        <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+          {/* Main content */}
+          <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+            <div className='flex justify-between'>
+              <div>
+                <SwitchContainer selected={selected} setSelected={setSelected} publishingOptions={publishingOptions} />
+              </div>
+              <div>
+                <SearchContainer onSearch={setSearch} />
+              </div>
             </div>
-            {/* Content end */}
+            <div>
+              <MediaListContainer type={selected.title === "All Media" ? '' : selected.title} search={search} />
+            </div>
           </div>
-        </main>
+          {/* Content end */}
+        </div>
+      </main>
     </div>
   );
 };

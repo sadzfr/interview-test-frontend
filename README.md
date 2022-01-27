@@ -1,10 +1,8 @@
-# Getting Started
+# Interview Test Frontend
 
 This project was bootstrapped with
 - [Create React App](https://github.com/facebook/create-react-app) with typescript.
 - [Tailwind CSS](https://tailwindcss.com/) for design.
-- [React Query](https://react-query.tanstack.com/) for interacting with server.
-- [ts-jest](https://github.com/kulshekhar/ts-jest) for tests.
 - [env-cmd](https://github.com/toddbluhm/env-cmd) for separating dev/prod environments.
 
 ## Available Scripts
@@ -29,7 +27,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 ### `yarn build:dev`
 
 Builds the app for development to the `build` folder in case you want to test build.\
-
-### `yarn test:jest`
-
-Launches the jest tests created in **tests** folder.\
