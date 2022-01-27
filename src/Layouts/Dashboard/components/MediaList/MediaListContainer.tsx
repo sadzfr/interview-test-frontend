@@ -24,7 +24,16 @@ const MediaListContainer = ({ type, search }: { type: string, search: string }) 
 			setCount(count)
 			setMedia(records)
 		})
-	}, [type, offset, search, limit]);
+	}, [offset, limit]);
+
+	useEffect(() => {
+		getMedia({ type: type.toLowerCase(), limit, offset: 0, search }).then(media => {
+			const { records, count } = media
+			setCount(count)
+			setMedia(records)
+		})
+	}, [type, search]);
+
 
 	return <MediaList
 		media={media}

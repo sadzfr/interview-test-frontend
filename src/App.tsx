@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,10 +11,14 @@ import DashboardContainer from './Layouts/Dashboard/DashboardContainer';
 import PrivateRoute from './utils/PrivateRoute';
 import LoginContainer from './Layouts/Auth/Login/LoginContainer';
 import RegisterContainer from './Layouts/Auth/Register/RegisterContainer';
+import { setUserIdToken } from './config/axios';
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  useEffect(() => {
+    setUserIdToken()
+  }, [])
   return (
     <QueryClientProvider client={queryClient}>
       <ToastContainer />

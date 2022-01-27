@@ -23,7 +23,7 @@ instance.defaults.headers.post['Content-Type'] = 'application/json';
  * attaches the logged in user's `idToken` to the authentication header
  */
 export const setUserIdToken = async () => {
-	let idToken = localStorage.getItem('idtk');
-	instance.defaults.headers.common['Authorization'] = `Bearer ${idToken}`;
+	const token = localStorage.getItem('idtk')
+	instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 export default instance;

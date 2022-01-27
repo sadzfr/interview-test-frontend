@@ -13,6 +13,7 @@ export interface INavigation {
 export interface IUserNavigation {
   name: string;
   href: string;
+  onClick: () => void
 }
 
 export interface IProps {

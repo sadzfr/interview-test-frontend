@@ -1,4 +1,4 @@
-import axios from '../config/axios'
+import axios, { setUserIdToken } from '../config/axios'
 type TCreds = {
   email: string,
   password: string
@@ -22,14 +22,16 @@ const login = ({ email, password }: TCreds) => {
       email, password
     }).then(response => {
       localStorage.setItem('idtk', response?.data?.token)
+      setUserIdToken()
       resolve(response?.data)
     }).catch((err) => {
       reject(err)
     })
   });
-
 }
+
+const logout = () => localStorage.removeItem('idtk')
 
 const isAuthenticated = () => !!localStorage.getItem('idtk')
 
-export { register, login, isAuthenticated }
+export { register, login, isAuthenticated, logout }

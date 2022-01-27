@@ -1,3 +1,4 @@
+import { logout } from '../../../services/auth';
 import TopBar from './TopBar';
 import { INavigation, IUser, IUserNavigation } from './topbar.interfaces';
 
@@ -11,9 +12,7 @@ const navigation: INavigation[] = [
   { name: 'Dashboard', href: '/', current: true },
 ];
 const userNavigation: IUserNavigation[] = [
-  { name: 'Your Profile', href: '/' },
-  { name: 'Settings', href: '/' },
-  { name: 'Sign out', href: '/' },
+  { name: 'Sign out', href: '/', onClick: () => { logout(); window.location.href = '/' } },
 ];
 
 /**
